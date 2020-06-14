@@ -21,7 +21,7 @@ class Agregarfoto extends Component
             'photo' => 'image|max:1024', // 1MB Max
         ]);
 
-       //$this->photo->store("photos", 'public');
+       $this->photo->store("photos", 'public');
        return  $this->photo; 
        $this->agrega = false;
     }
