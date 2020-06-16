@@ -95,9 +95,14 @@ class EquipoController extends Controller
      * @param  \App\Equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Equipo $equipo)
+    public function edit($id)
     {
-        //
+        $users = User::all();
+        $tipos = Tipoequipo::all();
+        $modlos = Modelo::all();
+        $marcs = Marca::all();
+        $equipo = Equipo::findOrFail($id);
+        return view('editar', compact('equipo','users','tipos','modlos', 'marcs'));
     }
 
     /**
@@ -107,9 +112,22 @@ class EquipoController extends Controller
      * @param  \App\Equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipo $equipo)
+    public function update(Request $request, $id)
     {
-        //
+       return $request->all();;
+        $equip = Equipo::findOrFail($id);
+        if($request->file('namefoto'))
+        {
+           $image = $request->file('namefoto');
+           $filename = $request['serial'].'.'.$image->extension(); 
+           Image::make($request->file('namefoto'))->resize(144, 144)
+           ->save('images/equipos/'.$filename);     
+        }
+        $equip->fill($request->all());
+        $equip->fill(['namefoto' => $filename])->save();
+
+        toastr()->success('Actualizado correctamente');
+       
     }
 
     /**

@@ -14,6 +14,11 @@
                     <span>{{$equipo->marca->nombremarca}}</span>
                     <span class="mx-1">|</span>
                     <span class="ml-1">{{ $equipo->modelo->nombremodelo }}</span>
+                    
+                </div>
+                <div class="text-gray-300 text-sm">
+                    <span class="">Serial:</span>
+                    <span class="ml-1">{{ $equipo->serial }}</span>
                 </div>
                 <div class="text-gray-300 text-sm">
                     <span >{{  'Adquirido: '. \Carbon\Carbon::parse($equipo->fe_adquisicion)->format('M, Y')}}</span>
@@ -36,7 +41,7 @@
         </div>
 
         <div class="ml-16 mb-5">
-            <livewire:agregarfoto>
+            <livewire:agregarfoto :equipo="$equipo">
         </div>
 
         
@@ -91,3 +96,9 @@
 
 @endsection
 
+@section('script')
+<script>
+   window.livewire.on('alert', param => {
+       toastr[param['type']](param['message'], param['type']);
+   })
+</script>

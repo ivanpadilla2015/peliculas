@@ -1,5 +1,7 @@
 <div>
+   
     @if($agrega)
+     
        <form wire:submit.prevent="masfotos">
           <label class="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-1" for="grid-state">
              Foto
@@ -17,8 +19,17 @@
             Agregar Fotos
         </button> 
     @endif
-    
 
-    
-     
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        @foreach ($data as $item)
+            <div>
+                <img src="{{asset('storage/photos/'.$item->namefoton)}}" alt="" class="hover:opacity-75 transition ease-in-out duration-150" width="200" height="300"  >    
+                <div class="flex items-center text-gray-400 text-sm"> 
+                    <span class="ml-1"><button wire:click="remove({{ $item->id }})" onclick="confirm('Confirma Eliminarlo?') || event.stopImmediatePropagation()"  class="bg-gray-900 hover:text-red-300 w-8 h-8 text-gray-600 " title="Eliminar" >Eliminar</button></span>
+                </div>
+          </div>
+        @endforeach
+        
+    </div>
+
 </div>
