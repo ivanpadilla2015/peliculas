@@ -16,6 +16,10 @@ Route::view('marcas', 'marcas');
 Route::view('tipos', 'tipoequipos');
 
 Route::get('pdfg', 'PdfController@Pdfgeneral');
+Route::get('xusuario', 'PdfController@Pdfxusuario');
+Route::get('gengrupodepen', 'PdfController@Pdfgrupodepen');
+
+Route::resource('personal', 'PersonalController');
 
 Auth::routes();
 

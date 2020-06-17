@@ -114,19 +114,22 @@ class EquipoController extends Controller
      */
     public function update(Request $request, $id)
     {
-       return $request->all();;
+       //return $request->all();;
         $equip = Equipo::findOrFail($id);
+        $equip->fill($request->all());
         if($request->file('namefoto'))
         {
            $image = $request->file('namefoto');
            $filename = $request['serial'].'.'.$image->extension(); 
            Image::make($request->file('namefoto'))->resize(144, 144)
-           ->save('images/equipos/'.$filename);     
+           ->save('images/equipos/'.$filename);  
+           $equip->fill(['namefoto' => $filename]);   
         }
-        $equip->fill($request->all());
-        $equip->fill(['namefoto' => $filename])->save();
+        
+        $equip->save();
 
         toastr()->success('Actualizado correctamente');
+        return redirect('/equipos');
        
     }
 

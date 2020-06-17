@@ -14,4 +14,18 @@ class PdfController extends Controller
         $pdf= PDF::loadView('pdfs.general_pdf', compact('data'));
         return $pdf->stream();
     }
+
+    public function Pdfxusuario()
+    {
+        $data = Equipo::all();
+        $pdf= PDF::loadView('pdfs.general_pdf', compact('data'));
+        return $pdf->stream();
+    }
+    
+    public function Pdfgrupodepen()
+    {
+        $data = Equipo::all();
+        $pdf= PDF::loadView('pdfs.general_pdf', compact('data'));
+        return $pdf->stream();
+    }
 }
