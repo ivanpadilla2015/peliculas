@@ -13,6 +13,7 @@ class Agregarfoto extends Component
     use WithFileUploads;
     public $agrega = false;
     public $photo, $serial, $ide;
+    public $showModel = false;
     
     public function render()
     {

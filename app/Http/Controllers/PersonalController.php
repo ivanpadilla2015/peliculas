@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Dependencia;
 use App\User;
+use App\Equipo;
 class PersonalController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        $user = User::orderBy('id', 'desc')->paginate(7);
+        $user = User::where('activo', true)->orderBy('id', 'desc')->paginate(7);
         return view('personal', compact('user'));
     }
 
@@ -89,7 +90,7 @@ class PersonalController extends Controller
     {
         $request->validate([
             'name' =>'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'required|min:5',
             'dependencia_id' => 'required|integer|not_in:0',
             
@@ -110,5 +111,23 @@ class PersonalController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function desactivarusuario($id)
+    {
+       if($id > 1) // el 1 es el sin usuario
+       {
+            $use = User::findOrFail($id);
+            $use->activo = false;
+            $use->save();
+            Equipo::where('user_id', $id)
+            ->update(['user_id' => 1]);
+            toastr()->success('Eliminado correctamente');
+       }else
+        {
+            toastr()->error('Este Usurio no puede ser Borrado');
+            return back();
+        }
+        return redirect('/personal');  
     }
 }

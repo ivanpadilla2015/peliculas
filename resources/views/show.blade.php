@@ -1,5 +1,35 @@
 @extends('layouts.main')
 
+@section('style')
+    <style>
+        .modal-container.active{
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            }
+
+        .modal-container img{
+        z-index: 1;
+        }
+
+            .modal-container.active::after{
+            content: '';
+            position: fixed;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.56);
+            z-index: 0;
+            }
+
+    </style>
+@endsection
+
 @section('content')
     <div class="pcs-info border-b border-gray-800" >
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">

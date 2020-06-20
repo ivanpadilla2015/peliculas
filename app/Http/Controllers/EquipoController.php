@@ -23,6 +23,8 @@ class EquipoController extends Controller
         //dd($equipo);
         //dump($users->equipos);
          //return $equipo;
+        //$equipos = Equipo::where('user_id', '<>', 1)->get();
+        //return $equipos;
         $equipos = Equipo::all();
         return view('index', compact('equipos'));
     }
@@ -34,7 +36,7 @@ class EquipoController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $users = User::where('activo', 1)->get();//usuarios activos
         $tipos = Tipoequipo::all();
         $modlos = Modelo::all();
         $marcs = Marca::all();
@@ -97,7 +99,7 @@ class EquipoController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
+        $users = User::where('activo', 1)->get(); //usuarios activos
         $tipos = Tipoequipo::all();
         $modlos = Modelo::all();
         $marcs = Marca::all();

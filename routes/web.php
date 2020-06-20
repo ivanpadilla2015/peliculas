@@ -20,6 +20,9 @@ Route::get('xusuario', 'PdfController@Pdfxusuario');
 Route::get('gengrupodepen', 'PdfController@Pdfgrupodepen');
 
 Route::resource('personal', 'PersonalController');
+Route::get('/dasativaus/{id}', 'PersonalController@desactivarusuario');
+
+Route::resource('dependen', 'DependenController');
 
 Auth::routes();
 

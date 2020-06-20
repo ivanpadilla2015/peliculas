@@ -13,6 +13,11 @@ class DependenciasTableSeeder extends Seeder
     {
         App\Dependencia::create([
 
+            'nombredepen' => strtoupper('Sin Dependencia'),
+        ]);
+        
+        App\Dependencia::create([
+
             'nombredepen' => strtoupper('Admistrativa'),
         ]);
 
