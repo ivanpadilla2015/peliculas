@@ -25,7 +25,7 @@ class EquipoController extends Controller
          //return $equipo;
         //$equipos = Equipo::where('user_id', '<>', 1)->get();
         //return $equipos;
-        $equipos = Equipo::all();
+        $equipos = Equipo::where('debaja', 0)->get();
         return view('index', compact('equipos'));
     }
 
@@ -59,6 +59,7 @@ class EquipoController extends Controller
             'tipoequipo_id' => 'required|integer|not_in:0',
             'modelo_id' => 'required|integer|not_in:0',
             'serial' =>'required|unique:equipos',
+            
         ]);
         if($request->file('namefoto'))
         {

@@ -38,8 +38,9 @@ class CreateEquiposTable extends Migration
             $table->string('namefoto');
             $table->date('fe_adquisicion');
             $table->boolean('debaja')->default($value = false);
-            $table->string('sap');
+            $table->string('sap')->nullable();
             $table->string('nompc')->nullable();
+            $table->string('ip')->nullable();
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained();

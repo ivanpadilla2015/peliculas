@@ -16,8 +16,12 @@ Route::view('marcas', 'marcas');
 Route::view('tipos', 'tipoequipos');
 
 Route::get('pdfg', 'PdfController@Pdfgeneral');
-Route::get('xusuario', 'PdfController@Pdfxusuario');
+Route::get('xuser','PdfController@consulxuser');
+Route::get('xusuario', 'PdfController@Pdfxusuario')->name('xusuario');
 Route::get('gengrupodepen', 'PdfController@Pdfgrupodepen');
+
+Route::get('tgrupouser', 'PdfController@Pdfgrupoxuser');
+Route::get('tgrupousern', 'PdfController@Pdfgrupoxusern');
 
 Route::resource('personal', 'PersonalController');
 Route::get('/dasativaus/{id}', 'PersonalController@desactivarusuario');

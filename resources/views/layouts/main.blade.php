@@ -39,7 +39,8 @@
                           <li class=""><a  class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/equipos/create">Equipos</a></li>
                           <li class=""><a  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/tipos">Tipos Equipos</a></li>
                           <li class=""><a  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/modelos">Modelos Equipos</a></li>
-                          <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/marcas">Marcas Equipo</a></li>
+                          <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/marcas">Marcas Equipo</a></li>
+                          <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Dar de Baja Equipo</a></li>
                         </ul>
                     </div>
                 </li>
@@ -52,9 +53,10 @@
                         </button>
                         <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
                           <li class=""><a  class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/pdfg">General</a></li>
-                          <li class=""><a  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Equipo(s) x Usuario</a></li>
-                          <li class=""><a  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Equipo(s) x Dependencia</a></li>
-                          <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+                          <li class=""><a  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/tgrupouser">Todos Equipos Agrupados x Usuario</a></li>
+                          <li class=""><a  class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/tgrupousern">Todos Equipos Agru. x User Sin Foto</a></li>
+                          <li class=""><a  class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/xuser">Equipo(s) x Usuario</a></li>
+                          
                         </ul>
                     </div>
                 </li>

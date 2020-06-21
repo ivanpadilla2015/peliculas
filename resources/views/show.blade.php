@@ -1,33 +1,7 @@
 @extends('layouts.main')
 
 @section('style')
-    <style>
-        .modal-container.active{
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 0;
-            left: 0;
-            }
-
-        .modal-container img{
-        z-index: 1;
-        }
-
-            .modal-container.active::after{
-            content: '';
-            position: fixed;
-            width: 100vw;
-            top: 0;
-            left: 0;
-            background-color: rgba(0,0,0,0.56);
-            z-index: 0;
-            }
-
-    </style>
+    
 @endsection
 
 @section('content')
@@ -49,6 +23,14 @@
                 <div class="text-gray-300 text-sm">
                     <span class="">Serial:</span>
                     <span class="ml-1">{{ $equipo->serial }}</span>
+                    <span class="mx-1">|</span>
+                    <span class="">IP:</span>
+                    @if ($equipo->ip)
+                      <span class="">{{ $equipo->ip }}</span>
+                    @else
+                        Sin Ip
+                    @endif
+                    
                 </div>
                 <div class="text-gray-300 text-sm">
                     <span >{{  'Adquirido: '. \Carbon\Carbon::parse($equipo->fe_adquisicion)->format('M, Y')}}</span>

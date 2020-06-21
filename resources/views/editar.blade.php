@@ -120,7 +120,7 @@
       
     </div>  <!-- fin  2 Campos -->
     <!--  Nombre PC -->
-    <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="flex flex-wrap -mx-3 mb-4">
       <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="grid-state">
          Nombre PC
@@ -128,17 +128,24 @@
         <input name="nompc" value="{{ $equipo->nompc }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nompc" type="text" placeholder="Nombre Pc">
         <p class="text-red-500 text-xs italic">{{ $errors->first('nompc') }}</p>
       </div><!-- fin  Nombre PC -->
-      <!--  Foto -->
-      <div class="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+      <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0"><!-- Ip del equipo -->
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="grid-state">
-         Foto
+         Ip PC
         </label>
-        <input type="file" name="namefoto" value="{{ $equipo->namefoto }}" accept="image/*" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="descripcion"  >
-        <p class="text-red-500 text-xs italic">{{ $errors->first('namefoto') }}</p>
-      </div><!-- fin  Foto -->
-
+        <input name="ip" value="{{  $equipo->ip }}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="nompc" type="text" placeholder="Ip Equipo">
+        <p class="text-red-500 text-xs italic">{{ $errors->first('ip') }}</p>
+      </div><!-- fin  ip del equipo -->
     </div><!-- fin  PC -->
-     
+    <div class="flex flex-wrap -mx-3 mb-6"><!--  Foto -->
+        <div class="w-full md:w-2/3 px-3 mb-6 md:mb-0"> <!--  Foto -->
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-1" for="grid-state">
+          Foto
+          </label>
+          <input type="file" name="namefoto" value="{{ $equipo->namefoto }}" accept="image/*" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="descripcion"  >
+          <p class="text-red-500 text-xs italic">{{ $errors->first('namefoto') }}</p>
+        </div><!-- fin  Foto -->
+    </div>
+
      <div class="md:flex md:items-center">
       <div class="md:w-1/3"></div>
       <div class="md:w-2/3">

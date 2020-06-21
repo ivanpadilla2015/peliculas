@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model
 {
     protected $fillable = ['descripcion','user_id','tipoequipo_id','marca_id','modelo_id','serial',
-                          'namefoto', 'sap','fe_adquisicion','debaja', 'nompc'];
+                          'namefoto', 'sap','fe_adquisicion','debaja', 'nompc', 'ip'];
 
 
 

@@ -88,17 +88,23 @@ class PersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' =>'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'required|min:5',
-            'dependencia_id' => 'required|integer|not_in:0',
-            
-        ]);
-        $user = User::findOrFail($id);
-        $user->fill($request->all());
-        $user->save();
-        toastr()->success('Actualizado correctamente');
+        if ($id > 1) {
+            $request->validate([
+                'name' =>'required',
+                'email' => 'required|email|unique:users,email,'.$id,
+                'password' => 'required|min:5',
+                'dependencia_id' => 'required|integer|not_in:0',
+                
+            ]);
+            $user = User::findOrFail($id);
+            $user->fill($request->all());
+            $user->save();
+            toastr()->success('Actualizado correctamente');
+        }else {
+            toastr()->error('Este Usuario no puede ser Actualizado');
+            return back();
+        }
+        
         return redirect('/personal');    
     }
 
@@ -125,7 +131,7 @@ class PersonalController extends Controller
             toastr()->success('Eliminado correctamente');
        }else
         {
-            toastr()->error('Este Usurio no puede ser Borrado');
+            toastr()->error('Este Usuario no puede ser Borrado');
             return back();
         }
         return redirect('/personal');  
